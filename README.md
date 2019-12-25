@@ -1,10 +1,9 @@
-# portfolio
+# portfolio.frontend.personal-website
 
 ## Brief description
-In this section are found frontend projects:
 
-1. Personal website
+In this project, I had created a Single Page Application (SPA) using function-based style
 
 ## Technologies used
 
-### React
+- React
