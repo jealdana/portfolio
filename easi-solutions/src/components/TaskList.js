@@ -3,14 +3,24 @@ import React, {useState} from 'react';
 const ListTasks = (props) => {
   return(
     <ul>
-    {props.items.map(i=><li key={i.key} onClick={()=>{props.RemoveItemHandler(i.key)}}>{i.text}</li>)}
+    {props.items.map(i=>
+      {return(
+        <div className="row">
+          <div className="col">{i.text}</div>
+          <div className="col">{i.key}</div>
+          <div className="col" key={i.key} onClick={()=>{props.RemoveItemHandler(i.key)}}>
+            <button >Remove</button>
+          </div>
+        </div>
+      )}
+      )}
     </ul>
   )
 }
 
 function TaskList() {
   const [newListItem, setNewListItem] = useState({key:'',text:''})
-  const [items,setItems] = useState([])
+  const [items,setItems] = useState([{key:'123',text:'test'}])
   
   const AddTodoListHandler = e => {
     e.preventDefault();
