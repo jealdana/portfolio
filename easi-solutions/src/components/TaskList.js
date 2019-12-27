@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
 
 const ListTasks = (props) => {
   return(
@@ -33,6 +35,8 @@ function TaskList() {
     setItems(items.filter(newListItems))
   }
 
+  const [startDate, setStartDate] = useState(new Date());
+
   return(
     <div className='tasks'>
       <form onSubmit={AddTodoListHandler}>
@@ -41,6 +45,7 @@ function TaskList() {
         onChange={event => setNewListItem({key: Date.now(), text:event.target.value})}
         placeholder='New task'
         />
+         <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
         <button type="submit"> Add Task </button>
       </form>
 
