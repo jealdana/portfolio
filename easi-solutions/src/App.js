@@ -1,36 +1,82 @@
 import React, {useState} from 'react';
 import './App.css';
-import InputTodoList from './components/TaskList'
-
+import Assets from './components/Assets.js'
 // Lessons learned: state hooks, handlers, preventDefault function, filter function, map function 
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-const houses = [{locationID:1,LocationName:'house1'},{locationID:2,LocationName:'house2'}]
+function BasicExample() {
+  return (
+    <Router>
+      <div className='navbar navbar-light bg-light'>
+        <ul>
+          <li className='nav-item'>
+            <Link to="/">Home</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to="/about">About</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+        </ul>
 
-const HousesArrays = () => {
-  return(
-    <div className='container'>
-      <div className="row">
-        <div className="col-1">ID</div>
-        <div className="col-2">Location Name</div>
-        <div className="col">pending tasks</div>
+        <hr />
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
       </div>
-      {houses.map((house)=> {return(
-        <div className='row'>
-            <div className='col-1'>{house.locationID}</div>
-            <div className='col-2'>{house.LocationName}</div>
-            <div className='col'><InputTodoList /></div>
-        </div>
-        )})
-      }
+    </Router>
+  );
+}
+
+// You can think of these components as "pages"
+// in your app.
+
+function Home() {
+  return (
+    <div>
+      <h2>Home</h2>
     </div>
-  )
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <Assets/>
+    </div>
+  );
 }
 
 function App() {
   return (
     <div className="App">
-    <HousesArrays />
+    <BasicExample />
+    
     
     </div>
   );
