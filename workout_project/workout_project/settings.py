@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'personal_trainer',
+    'personal_trainer.apps.PersonalTrainerConfig',
 ]
 
 MIDDLEWARE = [
